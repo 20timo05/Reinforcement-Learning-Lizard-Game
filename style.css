@@ -1,0 +1,87 @@
+:root {
+  --size: min(50vh, calc((100vw - 5rem) / 2), 550px);
+  --x: 0;
+  --y: 2;
+}
+
+section {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+#game {
+  height: var(--size);
+  width: var(--size);
+  display: grid;
+  grid-template-columns: repeat(3, calc(var(--size) / 3));
+  grid-template-rows: repeat(3, calc(var(--size) / 3));
+  border: 1px solid black;
+  position: relative;
+}
+
+#game > img {
+  position: absolute;
+  height: calc(var(--size) / 6);
+  left: calc(var(--x) * var(--size) / 3);
+  top: calc(var(--y) * var(--size) / 3);
+  translate: calc(var(--size) / 12) calc(var(--size) / 12);
+  scale: 1.5;
+}
+
+#game > div {
+  border: 1px solid black;
+  display: grid;
+  place-items: center;
+}
+
+#game > div > img {
+  height: 50%;
+  width: 50%;
+}
+
+table {
+  width: var(--size);
+  font-size: 2rem;
+  position: relative;
+}
+
+table tr > th,
+table tr > td {
+  text-align: center;
+  border: 1px solid black;
+}
+
+table tr > td:first-child {
+  white-space: nowrap;
+  text-align: left;
+}
+
+table::before {
+  content: "States";
+  position: absolute;
+  top: 50%;
+  translate: -100% -50%;
+  rotate: -90deg;
+}
+
+table::after {
+  content: "Actions";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  translate: -50% -100%;
+}
+
+@media (max-width: 1200px) {
+  :root {
+    --size: min(60vw, 550px);
+  }
+  section {
+    flex-direction: column;
+  }
+}

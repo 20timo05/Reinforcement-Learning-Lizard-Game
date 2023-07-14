@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="game.js"></script>
+    <title>Reinforcement Learning Lizard Game</title>
+  </head>
+  <body>
+    <section>
+      <div id="game">
+        <img src="./assets/lizard.png" />
+
+        <div><img src="./assets/one_cricket.jpg" /></div>
+        <div></div>
+        <div></div>
+
+        <div></div>
+        <div><img src="./assets/bird.jpg" /></div>
+        <div></div>
+
+        <div></div>
+        <div></div>
+        <div><img src="./assets/five_crickets.jpg" /></div>
+      </div>
+      <table>
+        <tr>
+          <th></th>
+          <th>Left</th>
+          <th>Right</th>
+          <th>Up</th>
+          <th>Down</th>
+        </tr>
+        <tr>
+          <td>1 cricket</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>Empty 1</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>Empty 2</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>Empty 3</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>Bird</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>Empty 4</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>Empty 5</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>Empty 6</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>5 crickets</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+      </table>
+    </section>
+    <footer>
+      <button id="startTraining">Start Training</button>
+      <button id="showResult">Show Result</button>
+    </footer>
+
+    <script>
+      const table = document.querySelector("table");
+      window.addEventListener("resize", resizeHandler);
+
+      function resizeHandler() {
+        const { innerWidth } = window;
+        if (innerWidth > 1200) return;
+
+        table.style.scale = null
+        const { width } = table.getBoundingClientRect();
+        // width * x = innerWidth * 0.8
+        const scaleFactor = (innerWidth * 0.8) / width;
+        table.style.scale = Math.min(scaleFactor, 1);
+      }
+
+      resizeHandler();
+    </script>
+  </body>
+</html>
